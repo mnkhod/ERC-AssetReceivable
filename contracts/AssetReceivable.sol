@@ -15,6 +15,10 @@ contract AssetReceivable {
 
   receive() external payable {}
 
+  function getRecieveOwnership() view public returns(address){
+    return _receiveOwner;
+  }
+
   function rescueToken(IERC20 _token,address _to,uint _amount) public virtual onlyReceivableOwner {
     _token.transfer(_to,_amount);
   }

@@ -36,6 +36,8 @@ describe("AssetReceivable Test", function () {
   });
 
   it("Flow Test", async function () {
+    expect(await this.mockContract.getRecieveOwnership()).to.equal(this.odko.address);
+
     expect(await this.mockToken.balanceOf(this.mockContract.address)).to.equal(parse18(100));
     expect(await this.mockNft.balanceOf(this.mockContract.address)).to.equal(1);
     expect(await this.mockNft.ownerOf(0)).to.equal(this.mockContract.address);
